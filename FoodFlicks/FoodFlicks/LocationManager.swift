@@ -12,6 +12,7 @@ final class LocationManager: NSObject, CLLocationManagerDelegate {
     private let manager = CLLocationManager()
 
     var authorizationStatus: CLAuthorizationStatus = .notDetermined
+    var userLocation: CLLocation?
 
     override init() {
         super.init()
@@ -26,5 +27,14 @@ final class LocationManager: NSObject, CLLocationManagerDelegate {
 
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         authorizationStatus = manager.authorizationStatus
+        if authorizationStatus == .authorizedWhenInUse || authorizationStatus == .authorizedAlways {
+            manager.requestLocation()
+        }
     }
+
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        userLocation = locations.last
+    }
+
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: any Error) {}
 }
