@@ -5,13 +5,48 @@
 //  Created by Ace on 8/5/2026.
 //
 
+import CoreLocation
 import MapKit
 import SwiftUI
 
 struct NearbyView: View {
-    @State private var locationManager = LocationManager()
-    @State private var position: MapCameraPosition = .userLocation(fallback: .automatic)
-    @State private var hasZoomed = false
+    @State private var coordinate: CLLocationCoordinate2D?
+
+    var body: some View {
+        Group {
+            if let coordinate {
+                NearbyMapView(coordinate: coordinate)
+            } else {
+                ProgressView("Finding your location…")
+            }
+        }
+        .task {
+            let manager = CLLocationManager()
+            if manager.authorizationStatus == .notDetermined {
+                manager.requestWhenInUseAuthorization()
+            }
+            do {
+                for try await update in CLLocationUpdate.liveUpdates() {
+                    if let location = update.location {
+                        coordinate = location.coordinate
+                        return
+                    }
+                }
+            } catch {}
+        }
+    }
+}
+
+struct NearbyMapView: View {
+    @State private var position: MapCameraPosition
+
+    init(coordinate: CLLocationCoordinate2D) {
+        _position = State(initialValue: .region(MKCoordinateRegion(
+            center: coordinate,
+            latitudinalMeters: 2000,
+            longitudinalMeters: 2000
+        )))
+    }
 
     var body: some View {
         Map(position: $position) {
@@ -21,19 +56,6 @@ struct NearbyView: View {
             MapUserLocationButton()
             MapCompass()
             MapScaleView()
-        }
-        .onAppear {
-            locationManager.requestAuthorization()
-        }
-        .onChange(of: locationManager.userLocation) { _, newLocation in
-            guard let location = newLocation, !hasZoomed else { return }
-            hasZoomed = true
-            let cityRegion = MKCoordinateRegion(
-                center: location.coordinate,
-                latitudinalMeters: 5000,
-                longitudinalMeters: 5000
-            )
-            position = .region(cityRegion)
         }
     }
 }

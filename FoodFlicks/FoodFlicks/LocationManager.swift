@@ -7,6 +7,10 @@
 
 import CoreLocation
 
+extension Notification.Name {
+    static let locationDidUpdate = Notification.Name("locationDidUpdate")
+}
+
 @Observable
 final class LocationManager: NSObject, CLLocationManagerDelegate {
     private let manager = CLLocationManager()
@@ -25,15 +29,26 @@ final class LocationManager: NSObject, CLLocationManagerDelegate {
         }
     }
 
+    func startUpdatingLocation() {
+        manager.startUpdatingLocation()
+    }
+
+    func stopUpdatingLocation() {
+        manager.stopUpdatingLocation()
+    }
+
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         authorizationStatus = manager.authorizationStatus
         if authorizationStatus == .authorizedWhenInUse || authorizationStatus == .authorizedAlways {
-            manager.requestLocation()
+            manager.startUpdatingLocation()
         }
     }
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         userLocation = locations.last
+        if let location = userLocation {
+            NotificationCenter.default.post(name: .locationDidUpdate, object: location)
+        }
     }
 
     func locationManager(_ manager: CLLocationManager, didFailWithError error: any Error) {}
