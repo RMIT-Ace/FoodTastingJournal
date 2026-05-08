@@ -12,7 +12,7 @@ struct ContentView: View {
         TabView {
             NearbyView()
                 .tabItem {
-                    Label("Swift", systemImage: "swift")
+                    Label("Nearby", systemImage: "location")
                 }
 
             RestaurantListView()
