@@ -17,7 +17,7 @@ struct ContentView: View {
 
             RestaurantListView()
                 .tabItem {
-                    Label("Restaurants", systemImage: "list.bullet")
+                    Label("Restaurants", systemImage: "fork.knife.circle")
                 }
 
             SettingsView()
