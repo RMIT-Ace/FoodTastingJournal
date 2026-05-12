@@ -10,12 +10,12 @@ import SwiftUI
 struct RestaurantListView: View {
     var body: some View {
         NavigationStack {
-            List {
-                Text("Restaurant A")
-                Text("Restaurant B")
-                Text("Restaurant C")
-                Text("Restaurant D")
-                Text("Restaurant E")
+            List(restaurants) { restaurant in
+                HStack {
+                    Text(restaurant.name)
+                    Spacer()
+                    Text(restaurant.type.rawValue)
+                }
             }
             .navigationTitle("Restaurants")
         }
