@@ -63,3 +63,4 @@ struct NearbyMapView: View {
 #Preview {
     NearbyView()
 }
+// Test
