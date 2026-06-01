@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXFileReference section */
-		505455232FAD6C090006BF16 /* FoodFlicks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodFlicks.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		505455232FAD6C090006BF16 /* FoodJournal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodJournal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		505455252FAD6C090006BF16 /* FoodFlicks */ = {
+		505455252FAD6C090006BF16 /* FoodJournal */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = FoodFlicks;
+			path = FoodJournal;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -32,7 +32,7 @@
 		5054551A2FAD6C090006BF16 = {
 			isa = PBXGroup;
 			children = (
-				505455252FAD6C090006BF16 /* FoodFlicks */,
+				505455252FAD6C090006BF16 /* FoodJournal */,
 				505455242FAD6C090006BF16 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -40,7 +40,7 @@
 		505455242FAD6C090006BF16 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				505455232FAD6C090006BF16 /* FoodFlicks.app */,
+				505455232FAD6C090006BF16 /* FoodJournal.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -48,9 +48,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		505455222FAD6C090006BF16 /* FoodFlicks */ = {
+		505455222FAD6C090006BF16 /* FoodJournal */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5054552E2FAD6C0B0006BF16 /* Build configuration list for PBXNativeTarget "FoodFlicks" */;
+			buildConfigurationList = 5054552E2FAD6C0B0006BF16 /* Build configuration list for PBXNativeTarget "FoodJournal" */;
 			buildPhases = (
 				5054551F2FAD6C090006BF16 /* Sources */,
 				505455202FAD6C090006BF16 /* Frameworks */,
@@ -61,13 +61,13 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				505455252FAD6C090006BF16 /* FoodFlicks */,
+				505455252FAD6C090006BF16 /* FoodJournal */,
 			);
-			name = FoodFlicks;
+			name = FoodJournal;
 			packageProductDependencies = (
 			);
 			productName = FoodFlicks;
-			productReference = 505455232FAD6C090006BF16 /* FoodFlicks.app */;
+			productReference = 505455232FAD6C090006BF16 /* FoodJournal.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -85,7 +85,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 5054551E2FAD6C090006BF16 /* Build configuration list for PBXProject "FoodFlicks" */;
+			buildConfigurationList = 5054551E2FAD6C090006BF16 /* Build configuration list for PBXProject "FoodJournal" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -99,7 +99,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				505455222FAD6C090006BF16 /* FoodFlicks */,
+				505455222FAD6C090006BF16 /* FoodJournal */,
 			);
 		};
 /* End PBXProject section */
@@ -313,7 +313,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		5054551E2FAD6C090006BF16 /* Build configuration list for PBXProject "FoodFlicks" */ = {
+		5054551E2FAD6C090006BF16 /* Build configuration list for PBXProject "FoodJournal" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5054552C2FAD6C0B0006BF16 /* Debug */,
@@ -322,7 +322,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5054552E2FAD6C0B0006BF16 /* Build configuration list for PBXNativeTarget "FoodFlicks" */ = {
+		5054552E2FAD6C0B0006BF16 /* Build configuration list for PBXNativeTarget "FoodJournal" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5054552F2FAD6C0B0006BF16 /* Debug */,
