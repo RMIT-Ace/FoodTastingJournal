@@ -84,7 +84,6 @@ struct NearbyView: View {
                     }
                 }
             }
-            .navigationTitle("Nearby")
             .onAppear {
                 locationManager.requestLocation()
                 updateCameraPosition()

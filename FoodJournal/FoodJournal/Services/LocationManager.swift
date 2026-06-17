@@ -8,9 +8,22 @@
 import Foundation
 import CoreLocation
 
+protocol LocationManagerProtocol {
+    var currentLocation: Location? { get }
+    var authorizationStatus: CLAuthorizationStatus { get }
+    var locationError: Error? { get }
+    
+    func requestAuthorization()
+    func requestLocation()
+    func startUpdatingLocation()
+    func stopUpdatingLocation()
+    func getCurrentLocation() -> Location?
+}
 
 @Observable
-class LocationManager: NSObject, CLLocationManagerDelegate {
+class LocationManager:
+    NSObject, CLLocationManagerDelegate, LocationManagerProtocol
+{
     private let manager = CLLocationManager()
     private(set) var currentLocation: Location?
     private(set) var authorizationStatus: CLAuthorizationStatus = .notDetermined

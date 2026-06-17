@@ -25,4 +25,13 @@ struct Location: Equatable {
         self.longitude = clLocation.coordinate.longitude
         self.timestamp = clLocation.timestamp
     }
+    
+    /// Calculates the distance in meters between this location and another location
+    /// - Parameter other: The location to calculate distance to
+    /// - Returns: Distance in meters
+    func distance(to other: Location) -> Double {
+        let fromLocation = CLLocation(latitude: self.latitude, longitude: self.longitude)
+        let toLocation = CLLocation(latitude: other.latitude, longitude: other.longitude)
+        return fromLocation.distance(from: toLocation)
+    }
 }
