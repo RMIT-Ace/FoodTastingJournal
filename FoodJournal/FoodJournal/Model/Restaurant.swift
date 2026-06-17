@@ -6,7 +6,9 @@
 //
 
 import Foundation
+import CoreLocation
 
 struct Restaurant {
-    
+    let name: String
+    let location: CLLocation
 }

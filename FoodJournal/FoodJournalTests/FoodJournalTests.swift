@@ -13,36 +13,55 @@ import CoreLocation
 
 struct FoodJournalTests {
     
-    enum TestError: Error {
-        case testTimeoutError
-    }
+    static let melbLocation = CLLocation(latitude: -37.8136, longitude: 144.9631)
     
-    private func waitFor<T>(
-        timeout: Duration = .seconds(15),
-        poll: Duration = .milliseconds(50),
-        condition: () -> T?
-    ) async throws -> T {
-        let deadline = ContinuousClock.now + timeout
-        while ContinuousClock.now < deadline {
-            if let value = condition() { return value }
-            try await Task.sleep(for: poll)
-        }
-        throw TestError.testTimeoutError
-    }
+    static let nearRestaurants: [Restaurant] = [
+        Restaurant(name: "Restaurant 1",
+            location: .init( latitude: -37.8136, longitude: 144.9632 )
+        ),
+        Restaurant(name: "Restaurant 2",
+            location: .init( latitude: -37.8137, longitude: 144.9633 )
+        ),
+    ]
+    
+    static let farRestaurants: [Restaurant] = [
+        Restaurant(name: "Restaurant 3",
+            location: .init( latitude: -37.8136, longitude: 144.9742 )
+        ),
+        Restaurant(name: "Restaurant 4",
+            location: .init( latitude: -37.8137, longitude: 144.9743 )
+        ),
+    ]
+    
+
+    static let visitedRestaurants: [Restaurant] = {
+        nearRestaurants + farRestaurants
+    }()
+    
+    let locationManager: LocationManager = {
+        let manager = LocationManager()
+        manager.currentLocation = Self.melbLocation
+        manager.visitedRestaurants = visitedRestaurants
+        return manager
+    }()
+    
+    // MARK: - Test Cases -
     
     @Test("Location manager provides location")
-    @MainActor
-    func locationManagerWorks() async throws {
-        let locationManager = LocationManager()
-        #expect(locationManager.authorizationStatus == .authorizedWhenInUse)
-        
-        let currentLocation = try await waitFor { locationManager.currentLocation }
-        print(">> current location updated: \(currentLocation)")
-        #expect(locationManager.currentLocation != nil)
+    func getCurrentLocation() async throws {
+        #expect(locationManager.currentLocation == Self.melbLocation)
     }
     
-    @Test("All recorded restaurants calculated with distances from a given location.")
-    func allRestaurantsWithDistances() throws {
-        Issue.record("To be implemented")
+    @Test("Nearby restaurants are within the nearby distance.")
+    func nearByRestaurantsWithinDistance() throws {
+        guard let currentLocation = locationManager.currentLocation else {
+            #warning("No location")
+            return
+        }
+        for restaurant in locationManager.nearByRestaurants {
+            print(restaurant.name, restaurant.location.distance(from: currentLocation))
+            let restaurantDistace = restaurant.location.distance(from: currentLocation)
+            #expect(restaurantDistace <= locationManager.nearByDistance)
+        }
     }
 }
