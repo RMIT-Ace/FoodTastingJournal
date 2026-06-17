@@ -8,14 +8,12 @@
 import Testing
 
 struct FoodJournalTests {
-
-    /// All recorded restaurants within 2 kilometers of a given location
-    /// listed.
-    @Test("Nearby restaurants exist")
-    func nearByRestaurants() throws {
+    
+    @Test("Get the user current location")
+    func getCurrentLocation() throws {
         Issue.record("To be implemented")
     }
-    
+
     @Test("All recorded restaurants calculated with distances from a given location.")
     func allRestaurantsWithDistances() throws {
         Issue.record("To be implemented")
