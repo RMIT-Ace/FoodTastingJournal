@@ -47,7 +47,7 @@ struct FoodJournalTests {
     
     // MARK: - Test Cases -
     
-    @Test("Location manager provides location")
+    @Test("Location manager provides current location")
     func getCurrentLocation() async throws {
         #expect(locationManager.currentLocation == Self.melbLocation)
     }
