@@ -9,7 +9,7 @@ import Testing
 import Foundation
 import CoreLocation
 
-@testable import FoodJournal
+@testable import FoodTastingJournal
 
 struct FoodJournalTests {
     
