@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXContainerItemProxy section */
+		502BD9DA2FF36527009214CF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5054551B2FAD6C090006BF16 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 505455222FAD6C090006BF16;
+			remoteInfo = FoodTastingJournal;
+		};
 		50E273B52FCD498A00074435 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 5054551B2FAD6C090006BF16 /* Project object */;
@@ -17,11 +24,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		502BD9D42FF36527009214CF /* FoodTastingJournalUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FoodTastingJournalUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		505455232FAD6C090006BF16 /* FoodTastingJournal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodTastingJournal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		50E273B12FCD498A00074435 /* FoodTastingJournalTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FoodTastingJournalTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		502BD9D52FF36527009214CF /* FoodTastingJournalUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = FoodTastingJournalUITests;
+			sourceTree = "<group>";
+		};
 		505455252FAD6C090006BF16 /* FoodJournal */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = FoodJournal;
@@ -35,6 +48,13 @@
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		502BD9D12FF36527009214CF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		505455202FAD6C090006BF16 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -57,6 +77,7 @@
 			children = (
 				505455252FAD6C090006BF16 /* FoodJournal */,
 				50E273B22FCD498A00074435 /* FoodJournalTests */,
+				502BD9D52FF36527009214CF /* FoodTastingJournalUITests */,
 				505455242FAD6C090006BF16 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -66,6 +87,7 @@
 			children = (
 				505455232FAD6C090006BF16 /* FoodTastingJournal.app */,
 				50E273B12FCD498A00074435 /* FoodTastingJournalTests.xctest */,
+				502BD9D42FF36527009214CF /* FoodTastingJournalUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -73,6 +95,29 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		502BD9D32FF36527009214CF /* FoodTastingJournalUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 502BD9DE2FF36527009214CF /* Build configuration list for PBXNativeTarget "FoodTastingJournalUITests" */;
+			buildPhases = (
+				502BD9D02FF36527009214CF /* Sources */,
+				502BD9D12FF36527009214CF /* Frameworks */,
+				502BD9D22FF36527009214CF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				502BD9DB2FF36527009214CF /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				502BD9D52FF36527009214CF /* FoodTastingJournalUITests */,
+			);
+			name = FoodTastingJournalUITests;
+			packageProductDependencies = (
+			);
+			productName = FoodTastingJournalUITests;
+			productReference = 502BD9D42FF36527009214CF /* FoodTastingJournalUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		505455222FAD6C090006BF16 /* FoodTastingJournal */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5054552E2FAD6C0B0006BF16 /* Build configuration list for PBXNativeTarget "FoodTastingJournal" */;
@@ -125,9 +170,13 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 2650;
+				LastSwiftUpdateCheck = 2660;
 				LastUpgradeCheck = 2640;
 				TargetAttributes = {
+					502BD9D32FF36527009214CF = {
+						CreatedOnToolsVersion = 26.6;
+						TestTargetID = 505455222FAD6C090006BF16;
+					};
 					505455222FAD6C090006BF16 = {
 						CreatedOnToolsVersion = 26.4.1;
 					};
@@ -153,11 +202,19 @@
 			targets = (
 				505455222FAD6C090006BF16 /* FoodTastingJournal */,
 				50E273B02FCD498A00074435 /* FoodTastingJournalTests */,
+				502BD9D32FF36527009214CF /* FoodTastingJournalUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		502BD9D22FF36527009214CF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		505455212FAD6C090006BF16 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -175,6 +232,13 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		502BD9D02FF36527009214CF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5054551F2FAD6C090006BF16 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -192,6 +256,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		502BD9DB2FF36527009214CF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 505455222FAD6C090006BF16 /* FoodTastingJournal */;
+			targetProxy = 502BD9DA2FF36527009214CF /* PBXContainerItemProxy */;
+		};
 		50E273B62FCD498A00074435 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 505455222FAD6C090006BF16 /* FoodTastingJournal */;
@@ -200,6 +269,48 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		502BD9DC2FF36527009214CF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Z6UU7WL5HP;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = au.edu.rmit.hapi.test.FoodTastingJournalUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = FoodTastingJournal;
+			};
+			name = Debug;
+		};
+		502BD9DD2FF36527009214CF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Z6UU7WL5HP;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = au.edu.rmit.hapi.test.FoodTastingJournalUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = FoodTastingJournal;
+			};
+			name = Release;
+		};
 		5054552C2FAD6C0B0006BF16 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -434,6 +545,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		502BD9DE2FF36527009214CF /* Build configuration list for PBXNativeTarget "FoodTastingJournalUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				502BD9DC2FF36527009214CF /* Debug */,
+				502BD9DD2FF36527009214CF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		5054551E2FAD6C090006BF16 /* Build configuration list for PBXProject "FoodTastingJournal" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
