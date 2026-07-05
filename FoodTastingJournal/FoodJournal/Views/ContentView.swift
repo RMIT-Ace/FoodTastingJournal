@@ -11,6 +11,7 @@ struct ContentView: View {
     var body: some View {
         TabView {
             NearbyView()
+                .accessibilityIdentifier("NearbyView")
                 .tabItem {
                     Label("Nearby", systemImage: "location")
                 }
