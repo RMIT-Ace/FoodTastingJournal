@@ -56,4 +56,25 @@ final class FoodTastingJournalUITests: XCTestCase {
         let exists = mapMarker.waitForExistence(timeout: 5)
         XCTAssertTrue(exists, "Expected to find a map in NearbyView, but it was not present. Make sure the Map in NearbyView has accessibilityIdentifier 'NearbyMap'.")
     }
+
+    /// TDD: Verifies that the map in `NearbyView` shows a pin at the current location.
+    /// Implementation note:
+    /// - Add an annotation for the current location to the Map in NearbyView, and attach
+    ///   `.accessibilityIdentifier("CurrentLocationPin")` to its content view.
+    @MainActor
+    func testNearbyMapShowsCurrentLocationPin() throws {
+        let app = XCUIApplication()
+        app.launch()
+
+        // The pin must be inside the map.
+        let mapMarker = app.descendants(matching: .any)["NearbyMap"].firstMatch
+        XCTAssertTrue(mapMarker.waitForExistence(timeout: 5), "Expected to find the map in NearbyView before checking for the pin.")
+
+        // Look for the current-location pin by its accessibility identifier.
+        let currentLocationPin = mapMarker.descendants(matching: .any)["CurrentLocationPin"].firstMatch
+
+        // Allow a short wait for the pin to appear on the map.
+        let exists = currentLocationPin.waitForExistence(timeout: 5)
+        XCTAssertTrue(exists, "Expected to find a pin for the current location on the map, but it was not present. Make sure the current-location annotation has accessibilityIdentifier 'CurrentLocationPin'.")
+    }
 }
