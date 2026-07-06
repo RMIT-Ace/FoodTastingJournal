@@ -12,7 +12,9 @@ struct NearbyView: View {
     
     var body: some View {
         NavigationStack {
-            Text("Nearby")
+            Map()
+                .accessibilityIdentifier("NearbyMap")
+                .navigationTitle("Nearby")
         }
     }
 }

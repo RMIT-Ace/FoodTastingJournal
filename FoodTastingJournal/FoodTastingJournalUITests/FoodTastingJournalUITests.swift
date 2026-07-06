@@ -22,17 +22,6 @@ final class FoodTastingJournalUITests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    @MainActor
-    func testExample() throws {
-        // UI tests must launch the application that they test.
-        let app = XCUIApplication()
-        app.launch()
-
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // XCUIAutomation Documentation
-        // https://developer.apple.com/documentation/xcuiautomation
-    }
-
     /// TDD: Verifies that the app launches into `NearbyView`.
     /// Implementation note:
     /// - Ensure the root view (or a unique element in NearbyView) has accessibilityIdentifier set to "NearbyView".
@@ -60,7 +49,8 @@ final class FoodTastingJournalUITests: XCTestCase {
         app.launch()
 
         // Look for the map element by its accessibility identifier.
-        let mapMarker = app.maps["NearbyMap"]
+        // Use an any-type query because SwiftUI may not expose Map as XCUIElementType.map.
+        let mapMarker = app.descendants(matching: .any)["NearbyMap"].firstMatch
 
         // Allow a short wait for the map to appear.
         let exists = mapMarker.waitForExistence(timeout: 5)
