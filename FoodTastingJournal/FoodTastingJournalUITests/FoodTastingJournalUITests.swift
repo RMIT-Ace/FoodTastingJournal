@@ -50,4 +50,20 @@ final class FoodTastingJournalUITests: XCTestCase {
         let exists = nearbyViewMarker.waitForExistence(timeout: 5)
         XCTAssertTrue(exists, "Expected to find NearbyView on launch, but it was not present. Make sure an element in NearbyView has accessibilityIdentifier 'NearbyView'.")
     }
+
+    /// TDD: Verifies that a map view is displayed in `NearbyView`.
+    /// Implementation note:
+    /// - Attach `.accessibilityIdentifier("NearbyMap")` to the `Map` in NearbyView.
+    @MainActor
+    func testNearbyViewShowsMap() throws {
+        let app = XCUIApplication()
+        app.launch()
+
+        // Look for the map element by its accessibility identifier.
+        let mapMarker = app.maps["NearbyMap"]
+
+        // Allow a short wait for the map to appear.
+        let exists = mapMarker.waitForExistence(timeout: 5)
+        XCTAssertTrue(exists, "Expected to find a map in NearbyView, but it was not present. Make sure the Map in NearbyView has accessibilityIdentifier 'NearbyMap'.")
+    }
 }
