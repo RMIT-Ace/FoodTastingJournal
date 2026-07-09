@@ -20,4 +20,20 @@ class LocationManager {
             $0.location.distance(from: currentLocation) <= nearByDistance
         }
     }
+
+    func startUpdatingCurrentLocation() async {
+        do {
+            // Start continuous updating of location.
+            for try await update in CLLocationUpdate.liveUpdates() {
+                if let location = update.location {
+                    currentLocation = location
+                } else if update.authorizationDenied {
+                    print(">> WARNING: Location access denied")
+                    break
+                }
+            }
+        } catch {
+            print(">> WARNING: Location updates failed: \(error.localizedDescription)")
+        }
+    }
 }
