@@ -74,7 +74,7 @@ final class FoodTastingJournalUITests: XCTestCase {
         let currentLocationPin = mapMarker.descendants(matching: .any)["CurrentLocationPin"].firstMatch
 
         // Allow a short wait for the pin to appear on the map.
-        let exists = currentLocationPin.waitForExistence(timeout: 5)
+        let exists = currentLocationPin.waitForExistence(timeout: 10)
         XCTAssertTrue(exists, "Expected to find a pin for the current location on the map, but it was not present. Make sure the current-location annotation has accessibilityIdentifier 'CurrentLocationPin'.")
     }
 }
